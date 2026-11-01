@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Media Pembelajaran: Hibridisasi sp²</title>
+<style>
+:root{--bg:#f3f7fb;--card:#fff;--tx:#14233a;--mu:#51627c;--pr:#1f5fbf;--ac:#f2a516;--ok:#1d8a4e;--no:#c62f3b;--ln:#d5deea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d1626;--card:#16233a;--tx:#e8eef8;--mu:#9fb0c8;--pr:#6aa2f5;--ln:#2b3c58}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;font-size:16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;align-items:center;padding:8px 10px;background:var(--card);border-bottom:1px solid var(--ln)}
+header select,header button{font:inherit;font-size:.85em;padding:6px 8px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx)}
+header select{flex:1;min-width:0}
+.s{display:none;max-width:760px;margin:0 auto;padding:16px}.s.on{display:block}
+h1{font-size:1.7em;line-height:1.2;margin:.3em 0}h2{font-size:1.3em;margin:.2em 0 .6em;color:var(--pr)}
+.cov{background:linear-gradient(160deg,#0a1f4a,#12397a 60%,#0b5a6b);color:#fff;border-radius:18px;padding:28px 20px;text-align:center}
+.cov p{color:#e6efff;margin:.4em 0}.cov .big{font-size:2.2em;font-weight:700;letter-spacing:.1em}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:12px 0}
+.btn{background:var(--pr);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer}
+.btn.o{background:transparent;color:var(--pr);border:1px solid var(--pr)}.btn.y{background:var(--ac);color:#241a00}
+input[type=text]{font:inherit;width:100%;padding:9px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);margin:3px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1;min-width:110px}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--ln);padding:6px;text-align:center}th{background:var(--bg)}
+.box{display:inline-flex;width:44px;height:44px;border:2px solid var(--pr);border-radius:6px;align-items:center;justify-content:center;font-size:1.3em;margin:2px;background:var(--card)}
+.lab{display:inline-block;min-width:44px;font-weight:700}
+.nav{display:flex;justify-content:space-between;gap:8px;margin-top:16px}
+.fb{margin-top:8px;font-weight:600}.good{color:var(--ok)}.bad{color:var(--no)}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600;color:var(--pr)}
+.flip{perspective:800px;cursor:pointer}.fi{position:relative;min-height:190px;transition:transform .6s;transform-style:preserve-3d}
+.flip.f .fi{transform:rotateY(180deg)}.fa,.fz{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.fa{background:var(--pr);color:#fff}.fz{background:var(--card);border:2px solid var(--pr);transform:rotateY(180deg)}
+.opt{display:block;width:100%;text-align:left;margin:5px 0;padding:10px;border-radius:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font:inherit;cursor:pointer}
+.opt.sel{border-color:var(--pr);background:var(--bg)}
+.sc{font-size:3em;font-weight:800;color:var(--pr);text-align:center}
+canvas,svg{max-width:100%}.ctr{text-align:center}
+</style></head><body>
+<header>
+<select id="menu" aria-label="Menu halaman"></select>
+<button id="zm" title="Perkecil tulisan">A−</button><button id="zp" title="Perbesar tulisan">A+</button><button id="sp" title="Bacakan penjelasan">🔊</button>
+</header>
+
+<!-- 0 SAMPUL -->
+<section class="s" data-t="Sampul &amp; Petunjuk">
+<div class="cov"><p>Media Pembelajaran Kimia · Universitas Sriwijaya</p><div class="big">B F F F</div>
+<p>MEDIA PEMBELAJARAN KIMIA</p><h1>Hibridisasi sp² dan Bentuk Trigonal Planar</h1>
+<p>Sasaran: Siswa SMA<br>Disusun oleh: Ririn Ariyani · NIM 06101282530021</p><p>🧪 Kimia · ⚛️ BF₃ · 120°</p></div>
+<div class="card"><h2>Petunjuk Penggunaan</h2><ol>
+<li>Isi nama, kelas, dan nomor absen di bawah.</li><li>Gunakan tombol <b>Lanjut/Mundur</b> atau <b>menu</b> di atas untuk pindah halaman.</li>
+<li>Jawab latihan di tiap halaman, lalu tekan tombol <b>Periksa</b>.</li><li>Tekan <b>A−/A+</b> untuk mengubah ukuran tulisan, dan <b>🔊</b> untuk mendengar penjelasan halaman.</li>
+<li>Kerjakan kuis di akhir; nilai dan bagian yang salah akan ditampilkan.</li></ol>
+<input type="text" id="nm" placeholder="Nama siswa"><div class="row"><input type="text" id="kl" placeholder="Kelas"><input type="text" id="ab" placeholder="No. absen"></div>
+<div class="fb bad" id="idf"></div><p class="ctr"><button class="btn y" id="go">Mulai Belajar ✨</button></p></div>
+</section>
+
+<!-- 1 PEMBUKA -->
+<section class="s" data-t="Pertanyaan Pembuka &amp; Tujuan">
+<div class="card"><h2>🤔 Pertanyaan Pembuka</h2><p><b>Kenapa bentuk molekul bisa berbeda-beda?</b></p><p>Bayangkan 3 balon diikat jadi satu di bagian tengah. Balon-balon itu akan saling menjauh. Kalau dilihat dari atas, bagaimana susunan 3 balon itu? 🎈</p><input type="text" placeholder="Dugaanku…"></div>
+<div class="card"><h2>Capaian dan Tujuan Pembelajaran</h2>
+<p><b>Capaian:</b> Pada akhir Fase F, peserta didik mampu menjelaskan ikatan kimia dan menentukan bentuk molekul berdasarkan teori hibridisasi.</p>
+<p><b>Tujuan:</b> Peserta didik mampu menjelaskan proses hibridisasi sp² serta menggambarkan bentuk trigonal planar beserta sudut ikatannya.</p></div>
+<details open><summary>📖 Istilah penting</summary><ul>
+<li><b>Orbital</b>: ruang tempat elektron paling mungkin ditemukan (maks. 2 elektron).</li>
+<li><b>Sub kulit</b>: kelompok orbital dalam satu kulit (s, p, d, f).</li>
+<li><b>Elektron valensi</b>: elektron di kulit terluar yang dipakai berikatan.</li>
+<li><b>Hibridisasi</b>: pencampuran orbital atom menjadi orbital baru yang setara.</li>
+<li><b>Trigonal planar</b>: tiga atom di sudut segitiga sama sisi pada satu bidang datar.</li>
+<li><b>Pasangan elektron bebas</b>: pasangan elektron valensi yang tidak dipakai berikatan.</li></ul></details>
+</section>
+
+<!-- 2 KONFIGURASI -->
+<section class="s" data-t="Konfigurasi Sub Kulit">
+<div class="card"><h2>🔁 Pengingat: Konfigurasi Elektron</h2><p>Konfigurasi elektron menunjukkan cara elektron mengisi kulit dan orbital atom. Nomor atom = jumlah proton = jumlah elektron atom netral.</p></div>
+<div class="card"><h2>Konfigurasi Sub Kulit</h2>
+<p>Elektron mengisi kulit atom yang terbagi menjadi sub kulit <b>s, p, d, f</b>. Tiap sub kulit punya jumlah orbital dan elektron maksimum tertentu:</p>
+<table><tr><th>Sub kulit</th><th>s</th><th>p</th><th>d</th><th>f</th></tr><tr><td>Jumlah orbital</td><td>1</td><td>3</td><td>5</td><td>7</td></tr><tr><td>Elektron maks</td><td>2</td><td>6</td><td>10</td><td>14</td></tr></table>
+<p>Urutan pengisian: 1s → 2s → 2p → 3s → 3p → …</p></div>
+<div class="card"><p>Atom boron (B) bernomor atom 5, artinya punya 5 elektron. 🧩 Susun sendiri <b>konfigurasi sub kulit atom B</b>: tekan + atau − untuk mengisi tiap sub kulit.</p>
+<div id="cfg"></div><p><button class="btn" id="cfgb">Periksa susunanku</button></p><div class="fb" id="cfgf">Isi dulu, lalu periksa.</div></div>
+</section>
+
+<!-- 3 AUFBAU -->
+<section class="s" data-t="Aturan Pengisian Orbital">
+<div class="card"><h2>Tiga Aturan Pengisian Orbital</h2>
+<p><b>1. Aturan Aufbau</b> — elektron mengisi orbital berenergi paling rendah lebih dulu. Urutan: 1s, 2s, 2p, 3s, 3p, 4s, 3d, …</p>
+<p><b>2. Larangan Pauli</b> — satu orbital maksimal berisi 2 elektron, dan keduanya berspin berlawanan (↑↓).</p>
+<p><b>3. Aturan Hund</b> — orbital yang energinya sama (misal 3 orbital 2p) diisi satu-satu dulu dengan spin searah, baru dipasangkan.</p></div>
+<div class="card"><h2>Contoh: Karbon (Z = 6)</h2>
+<span class="lab">1s</span><span class="box">↑↓</span><br><span class="lab">2s</span><span class="box">↑↓</span><br><span class="lab">2p</span><span class="box">↑</span><span class="box">↑</span><span class="box"></span>
+<p>Dua elektron 2p masuk ke orbital berbeda dan searah (Hund), bukan berpasangan di satu orbital.</p></div>
+<div class="card"><p><b>Coba:</b> Nitrogen (Z = 7), bagaimana isi 3 orbital 2p-nya?</p>
+<button class="opt" data-q="n" data-v="0">↑↓ · ↑ · (kosong)</button><button class="opt" data-q="n" data-v="1">↑ · ↑ · ↑</button><button class="opt" data-q="n" data-v="0">↑↓ · ↑↓ · (kosong)</button><div class="fb" id="nf"></div></div>
+</section>
+
+<!-- 4 KAMAR -->
+<section class="s" data-t="Kamar Sub Kulit Boron">
+<div class="card"><h2>Kamar Sub Kulit Boron</h2><p>Tiap kotak = 1 orbital (kamar). Panah = elektron.</p>
+<div class="row" id="stp"><button class="btn o" data-k="0">① Dasar</button><button class="btn o" data-k="1">② Promosi</button><button class="btn o" data-k="2">③ Hibrid sp²</button></div>
+<div id="kam" style="margin-top:10px"></div><p id="kamt" class="fb"></p></div>
+</section>
+
+<!-- 5 BF3 -->
+<section class="s" data-t="Gambar BF₃">
+<div class="card"><h2>Gambar BF₃</h2><div class="ctr"><svg id="bf" viewBox="0 0 300 270" width="320" role="img" aria-label="Struktur BF3"></svg></div>
+<p class="ctr"><small>Tiap garis = 1 pasang elektron ikatan · titik berpasangan = pasangan elektron bebas F</small></p></div>
+<div class="card"><b>Bagaimana BF₃ terbentuk?</b><ol><li>B punya 3 elektron valensi (2s² 2p¹).</li><li>Tiap F punya 7 elektron valensi, jadi kurang 1 elektron agar stabil.</li><li>Tiap F memakai bersama 1 elektronnya dengan 1 elektron dari B. Terbentuk 1 pasang elektron ikatan B–F.</li><li>Ada 3 atom F, jadi B membentuk 3 ikatan dan jadilah BF₃. Tiap F tetap punya 3 pasang elektron bebas.</li></ol></div>
+<div class="card"><p>Sekarang jawab sendiri ya! 🔍</p>
+<p>a. Ada <select id="a1"><option>?</option><option>1</option><option>2</option><option>3</option></select> garis ikatan B–F.</p>
+<p>b. Tiap garis memakai 1 elektron dari B, jadi B butuh <select id="a2"><option>?</option><option>1</option><option>2</option><option>3</option></select> elektron tunggal.</p>
+<p>c. Agar semuanya tunggal, elektron valensi B tersusun: 2s <select id="a3"><option>?</option><option>0</option><option>1</option><option>2</option></select> 2p <select id="a4"><option>?</option><option>1</option><option>2</option><option>3</option></select></p>
+<button class="btn" id="ab1">Periksa jawabanku</button><div class="fb" id="a5">Jawab semua dulu, lalu periksa.</div></div>
+</section>
+
+<!-- 6 3D -->
+<section class="s" data-t="Molekul 3D">
+<div class="card"><h2>Bentuk Molekul BF₃ (3D)</h2><p>👆 Geser gambar untuk memutar molekulnya.</p>
+<div class="ctr"><canvas id="cv" width="320" height="300" style="touch-action:none;background:var(--bg);border-radius:12px"></canvas></div>
+<div class="row"><label><input type="checkbox" id="c1" checked> Garis bentuk</label><label><input type="checkbox" id="c2" checked> Orbital p sisa</label><label><input type="checkbox" id="c3" checked> Putar otomatis</label></div>
+<p><b>━━</b> Ikatan B–F. <b>╍╍</b> Segitiga sama sisi dari 3 atom F: trigonal planar, sudut F–B–F = 120°. Balon kuning: orbital 2pz kosong, tegak lurus bidang.</p></div>
+</section>
+
+<!-- 7 CONTOH -->
+<section class="s" data-t="Contoh Molekul Lain">
+<div class="card"><h2>Contoh Molekul sp² Lain</h2><table><tr><th>Molekul</th><th>Atom pusat</th><th>Bentuk</th></tr>
+<tr><td>BF₃</td><td>B</td><td>trigonal planar, 120°</td></tr><tr><td>C₂H₄ (etena)</td><td>tiap C</td><td>trigonal planar, ≈120°</td></tr>
+<tr><td>SO₃</td><td>S</td><td>trigonal planar, 120°</td></tr><tr><td>NO₃⁻</td><td>N</td><td>trigonal planar, 120°</td></tr></table>
+<p>Ciri sama: atom pusat punya <b>3 domain elektron</b> (tanpa pasangan bebas di atom pusat), sehingga bentuknya datar.</p></div>
+<div class="card"><p><b>Bandingkan:</b> pada etena, tiap C memakai orbital sp² untuk 3 ikatan sigma (2 ke H, 1 ke C), dan orbital p sisa membentuk ikatan pi antar C.</p></div>
+</section>
+
+<!-- 8 KARTU -->
+<section class="s" data-t="Balik Kartunya">
+<div class="card"><h2>Balik kartunya!</h2><p>Tiga orbital sp² saling tolak. Bagaimana susunan paling nyaman bagi ketiganya? Tebak dulu, lalu balik kartunya.</p>
+<div class="flip" id="fl"><div class="fi"><div class="fa"><h3>Kenapa sudutnya 120°?</h3>👆 Ketuk kartu</div><div class="fz">Agar tolakan paling kecil, ketiga orbital menyebar merata pada satu bidang. 360° ÷ 3 = 120°. Contoh sp² lain: C pada C₂H₄, S pada SO₃, N pada NO₃⁻.</div></div></div></div>
+</section>
+
+<!-- 9 KUIS -->
+<section class="s" data-t="Kuis &amp; Uji Pemahaman">
+<div class="card"><h2>Kuis dan Uji Pemahaman 📝</h2><p>6 soal pilihan ganda + 1 uraian. Soal bernilai sama; jawaban salah akan ditunjukkan setelah kamu menekan <b>Selesai</b>.</p></div>
+<div id="qz"></div>
+<div class="card"><b>Soal 7 (uraian)</b><p>Jelaskan alasan BF₃ berbentuk trigonal planar, bukan piramida!</p><textarea id="ur" rows="3" style="width:100%;font:inherit;padding:8px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx)"></textarea>
+<button class="btn o" id="kun">Lihat kunci jawaban</button><div class="fb" id="kj" style="font-weight:400"></div></div>
+<p class="ctr"><button class="btn" id="fin">Selesai &amp; lihat nilai</button></p><div class="card" id="res" style="display:none"></div>
+</section>
+
+<!-- 10 RANGKUMAN -->
+<section class="s" data-t="Rangkuman">
+<div class="card"><h2>Rangkuman</h2><ul>
+<li><b>Aturan pengisian:</b> Aufbau (energi rendah dulu), Pauli (maks. 2 elektron berspin berlawanan), Hund (satu-satu dulu).</li>
+<li><b>Konfigurasi B:</b> 1s² 2s² 2p¹, elektron valensi = 3.</li>
+<li><b>Butuh 3 ikatan:</b> 1 elektron 2s dipromosikan ke 2p, jadi 2s¹ 2p².</li>
+<li><b>Hibridisasi:</b> 1 orbital s + 2 orbital p → 3 orbital sp², tiap orbital berisi 1 elektron.</li>
+<li><b>BF₃:</b> 3 ikatan sigma B–F, orbital 2pz sisa kosong, tegak lurus bidang.</li>
+<li><b>Bentuk:</b> trigonal planar, sudut 120°.</li></ul>
+<p class="ctr"><b>🌟 Hebat! Kamu sudah menyelesaikan materi ini. Terus semangat belajar kimia!</b></p>
+<p class="ctr"><button class="btn o" id="rs">Ulang dari awal</button> <button class="btn y" id="rq">Main kuis lagi</button></p></div>
+<div class="card"><h2>📚 Sumber Bacaan</h2><ul><li>Chang, R. <i>Chemistry</i> — bab ikatan kimia dan hibridisasi orbital.</li><li>Buku Kimia SMA/MA Kelas XI (Kurikulum Merdeka) — bab bentuk molekul.</li><li>Brown, T. L. dkk. <i>Chemistry: The Central Science</i> — bab geometri molekul.</li></ul></div>
+</section>
+
+<div class="nav" style="max-width:760px;margin:0 auto;padding:0 16px 24px"><button class="btn o" id="pv">‹ Mundur</button><button class="btn" id="nx">Lanjut ›</button></div>
+
+<script>
+const $=q=>document.querySelector(q),S=[...document.querySelectorAll('.s')];let cur=0,ready=false,fs=16,raf;
+const menu=$('#menu');S.forEach((s,i)=>menu.add(new Option((i+1)+'. '+s.dataset.t.replace('&amp;','&'),i)));
+function go(i){if(i>0&&!ready){$('#idf').textContent='Isi nama, kelas, dan nomor absen dulu ya.';i=0}
+cur=Math.max(0,Math.min(S.length-1,i));S.forEach((s,j)=>s.classList.toggle('on',j==cur));menu.value=cur;
+$('#pv').style.visibility=cur?'visible':'hidden';$('#nx').style.visibility=cur<S.length-1?'visible':'hidden';scrollTo(0,0);speechSynthesis.cancel();if(cur==6)draw3()}
+menu.onchange=()=>go(+menu.value);$('#pv').onclick=()=>go(cur-1);$('#nx').onclick=()=>go(cur+1);
+$('#go').onclick=()=>{if($('#nm').value.trim()&&$('#kl').value.trim()&&$('#ab').value.trim()){ready=true;$('#idf').textContent='';go(1)}else $('#idf').textContent='Isi nama, kelas, dan nomor absen dulu ya.'};
+$('#zp').onclick=()=>{fs=Math.min(24,fs+2);document.body.style.fontSize=fs+'px'};$('#zm').onclick=()=>{fs=Math.max(13,fs-2);document.body.style.fontSize=fs+'px'};
+$('#sp').onclick=()=>{if(speechSynthesis.speaking){speechSynthesis.cancel();return}const u=new SpeechSynthesisUtterance(S[cur].innerText);u.lang='id-ID';speechSynthesis.speak(u)};
+const mark=(el,ok,t)=>{el.className='fb '+(ok?'good':'bad');el.textContent=t};
+// konfigurasi
+const cf={'1s':0,'2s':0,'2p':0};const cfg=$('#cfg');
+function rcfg(){cfg.innerHTML=Object.keys(cf).map(k=>`<p><span class="lab">${k}</span> <button class="btn o" data-k="${k}" data-d="-1">−</button> <b>${cf[k]}</b> <button class="btn o" data-k="${k}" data-d="1">+</button></p>`).join('')}
+cfg.onclick=e=>{const b=e.target.closest('button');if(!b)return;const k=b.dataset.k,mx=k=='2p'?6:2;cf[k]=Math.max(0,Math.min(mx,cf[k]+ +b.dataset.d));rcfg()};rcfg();
+$('#cfgb').onclick=()=>{const t=cf['1s']+cf['2s']+cf['2p'],f=$('#cfgf');if(cf['1s']==2&&cf['2s']==2&&cf['2p']==1)mark(f,1,'✓ Benar! 1s² 2s² 2p¹');else{let m=[];if(t!=5)m.push('jumlah elektron harus 5 (kamu: '+t+')');if(cf['1s']!=2)m.push('1s harus penuh = 2');if(cf['2s']!=2)m.push('2s harus 2 sebelum mengisi 2p (Aufbau)');mark(f,0,'✗ Belum tepat: '+m.join('; ')+'.')}};
+// aufbau
+document.addEventListener('click',e=>{const b=e.target.closest('.opt[data-q=n]');if(b){mark($('#nf'),b.dataset.v==1,b.dataset.v==1?'✓ Benar! Hund: 3 orbital 2p diisi satu-satu searah.':'✗ Salah. Menurut Hund, elektron mengisi orbital setingkat satu-satu dulu: ↑ · ↑ · ↑.')}});
+// kamar
+const bx=(a,l)=>`<div><span class="lab">${l}</span>${a.map(x=>`<span class="box">${x}</span>`).join('')}</div>`;
+const KM=[[['↑↓'],['↑↓'],['↑','','']],[['↑↓'],['↑'],['↑','↑','']],[['↑↓'],['↑','↑','↑']]],KT=['Keadaan dasar: 1s² 2s² 2p¹. Hanya 1 elektron tunggal, padahal B butuh 3 ikatan.','Promosi: 1 elektron 2s naik ke 2p, jadi 2s¹ 2p². Kini ada 3 elektron tunggal.','Hibridisasi: 2s¹ + 2 orbital 2p bercampur menjadi 3 orbital sp² setara (1 orbital 2p tidak ikut, kosong).'];
+function kam(k){const m=KM[k];$('#kam').innerHTML=bx(m[0],'1s')+(k<2?bx(m[1],'2s')+bx(m[2],'2p'):`<div><span class="lab">sp²</span>${'↑ ↑ ↑'.split(' ').map(x=>`<span class="box" style="border-color:var(--ac)">${x}</span>`).join('')}</div><div><span class="lab">2pz</span><span class="box"></span> <small>kosong</small></div>`);$('#kamt').textContent=KT[k]}
+$('#stp').onclick=e=>{const b=e.target.closest('button');if(b)kam(+b.dataset.k)};kam(0);
+// BF3 svg
+(function(){const c=[150,120],R=90;let h='<polygon points="'+[90,210,330].map(a=>(c[0]+R*Math.cos(a*Math.PI/180))+','+(c[1]-R*Math.sin(a*Math.PI/180))).join(' ')+'" fill="none" stroke="#999" stroke-dasharray="4 4"/>';
+[90,210,330].forEach(a=>{const r=a*Math.PI/180,x=c[0]+R*Math.cos(r),y=c[1]-R*Math.sin(r);h+=`<line x1="${c[0]}" y1="${c[1]}" x2="${x}" y2="${y}" stroke="#1f5fbf" stroke-width="4"/>`;
+[-90,0,90].forEach(o=>{const q=(a+o)*Math.PI/180,px=x+26*Math.cos(q),py=y-26*Math.sin(q),nx=-Math.sin(q)*5,ny=-Math.cos(q)*5;h+=`<circle cx="${px+nx}" cy="${py+ny}" r="2.6" fill="#f2a516"/><circle cx="${px-nx}" cy="${py-ny}" r="2.6" fill="#f2a516"/>`});
+h+=`<circle cx="${x}" cy="${y}" r="17" fill="#1d8a4e"/><text x="${x}" y="${y+5}" text-anchor="middle" fill="#fff" font-weight="700">F</text>`});
+h+=`<circle cx="${c[0]}" cy="${c[1]}" r="20" fill="#d9467a"/><text x="${c[0]}" y="${c[1]+6}" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">B</text>`;
+h+=`<text x="${c[0]}" y="${c[1]+52}" text-anchor="middle" fill="currentColor" font-size="13">120°</text><path d="M${c[0]-22} ${c[1]+36} A 40 40 0 0 0 ${c[0]+22} ${c[1]+36}" fill="none" stroke="currentColor"/>`;$('#bf').innerHTML=h})();
+$('#ab1').onclick=()=>{const v=['a1','a2','a3','a4'].map(i=>$('#'+i).value),k=['3','3','1','2'],f=$('#a5');if(v.includes('?')){mark(f,0,'Jawab semua dulu, lalu periksa.');return}const w=k.map((x,i)=>v[i]!=x?'abcc'[i]+(i==3?'(2p)':i==2?'(2s)':''):'').filter(Boolean);mark(f,!w.length,w.length?'✗ Yang masih salah: butir '+w.join(', ')+'. Ingat: B perlu 3 elektron tunggal (2s¹ 2p²).':'✓ Semua benar!')};
+// 3D
+const P=[[0,0,0,'B','#d9467a',16],[0,-1.7,0,'F','#1d8a4e',13]];[210,330].forEach(a=>{const r=a*Math.PI/180;P.push([1.7*Math.cos(r)*-1*-1,0,0])});
+const at=[['B',0,0,0,'#d9467a',16]];[90,210,330].forEach(a=>{const r=a*Math.PI/180;at.push(['F',1.7*Math.cos(r),-1.7*Math.sin(r),0,'#1d8a4e',13])});
+let ax=-.5,ay=.6;const cv=$('#cv'),x=cv.getContext('2d');
+function draw3(){cancelAnimationFrame(raf);if(cur!=6)return;if($('#c3').checked&&!dr)ay+=.012;x.clearRect(0,0,320,300);
+const pr=(X,Y,Z)=>{let a=X*Math.cos(ay)+Z*Math.sin(ay),z=-X*Math.sin(ay)+Z*Math.cos(ay),b=Y*Math.cos(ax)-z*Math.sin(ax),z2=Y*Math.sin(ax)+z*Math.cos(ax),s=1/(1-z2*.12);return[160+a*80*s,150+b*80*s,z2,s]};
+const it=[];at.forEach(a=>{const p=pr(a[1],a[2],a[3]);it.push({p,a,t:'a'})});
+if($('#c2').checked)[1,-1].forEach(sg=>{const p=pr(0,0,sg*1.15);it.push({p,t:'o'})});
+it.sort((u,v)=>u.p[2]-v.p[2]);const B=pr(0,0,0),F=at.slice(1).map(a=>pr(a[1],a[2],a[3]));
+x.strokeStyle='#1f5fbf';x.lineWidth=4;F.forEach(f=>{x.beginPath();x.moveTo(B[0],B[1]);x.lineTo(f[0],f[1]);x.stroke()});
+if($('#c1').checked){x.setLineDash([5,5]);x.strokeStyle='#999';x.lineWidth=1.5;x.beginPath();F.forEach((f,i)=>i?x.lineTo(f[0],f[1]):x.moveTo(f[0],f[1]));x.closePath();x.stroke();x.setLineDash([])}
+it.forEach(o=>{if(o.t=='o'){x.fillStyle='rgba(242,165,22,.55)';x.beginPath();x.ellipse(o.p[0],o.p[1],14*o.p[3],20*o.p[3],0,0,7);x.fill()}else{x.fillStyle=o.a[4];x.beginPath();x.arc(o.p[0],o.p[1],o.a[5]*o.p[3],0,7);x.fill();x.fillStyle='#fff';x.font='bold 14px sans-serif';x.textAlign='center';x.fillText(o.a[0],o.p[0],o.p[1]+5)}});
+raf=requestAnimationFrame(draw3)}
+let dr=false,lx=0,ly=0;cv.onpointerdown=e=>{dr=true;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(e.pointerId)};cv.onpointermove=e=>{if(dr){ay+=(e.clientX-lx)*.01;ax+=(e.clientY-ly)*.01;lx=e.clientX;ly=e.clientY}};cv.onpointerup=()=>dr=false;
+// kartu
+$('#fl').onclick=()=>$('#fl').classList.toggle('f');
+// kuis
+const Q=[
+['Menurut aturan Aufbau, urutan pengisian orbital yang benar adalah…',['1s → 2s → 3s → 2p','1s → 2s → 2p → 3s','2p → 2s → 1s → 3s','1s → 2p → 2s → 3s'],1,'Aufbau: elektron mengisi orbital berenergi terendah dulu: 1s, 2s, 2p, 3s.'],
+['Larangan Pauli menyatakan bahwa satu orbital…',['dapat berisi 4 elektron','berisi maks. 2 elektron dengan spin berlawanan','harus diisi elektron searah dulu','tidak boleh berisi elektron'],1,'Pauli: tidak ada dua elektron dengan keempat bilangan kuantum sama, sehingga 1 orbital maks. 2 elektron berspin berlawanan.'],
+['Mengapa 1 elektron 2s boron dipromosikan ke 2p sebelum hibridisasi?',['Agar B punya 3 elektron tunggal untuk 3 ikatan','Agar B menjadi lebih berat','Agar B punya 5 elektron valensi','Agar orbital 1s kosong'],0,'Pada keadaan dasar B hanya punya 1 elektron tunggal (2p¹). Setelah promosi (2s¹ 2p²) ada 3 elektron tunggal.'],
+['Hibridisasi sp² terbentuk dari penggabungan…',['1 orbital s + 1 orbital p','1 orbital s + 2 orbital p','1 orbital s + 3 orbital p','2 orbital s + 2 orbital p'],1,'sp² = 1 orbital s + 2 orbital p menghasilkan 3 orbital sp².'],
+['Bentuk molekul BF₃ dan sudut ikatannya adalah…',['Tetrahedral, 109,5°','Linear, 180°','Trigonal planar, 120°','Bengkok, 104,5°'],2,'Tiga orbital sp² tersebar merata pada satu bidang: trigonal planar, 120°.'],
+['Mengapa sudut F–B–F sebesar 120°, bukan 90°?',['Karena F lebih besar dari B','Karena tolakan tiga orbital sp² paling kecil bila menyebar merata (360° ÷ 3)','Karena B punya pasangan elektron bebas','Karena orbital 2pz berikatan dengan F'],1,'Tolakan minimal tercapai ketika ketiga orbital sp² saling berjauhan pada satu bidang: 360° ÷ 3 = 120°.']];
+const ans=Array(Q.length).fill(-1);
+function rq(){$('#qz').innerHTML=Q.map((q,i)=>`<div class="card" id="q${i}"><b>Soal ${i+1}.</b> ${q[0]}${q[1].map((o,j)=>`<button class="opt${ans[i]==j?' sel':''}" data-i="${i}" data-j="${j}">${'ABCD'[j]}. ${o}</button>`).join('')}<div class="fb" id="e${i}"></div></div>`).join('')}
+$('#qz').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;ans[+b.dataset.i]=+b.dataset.j;[...$('#q'+b.dataset.i).querySelectorAll('.opt')].forEach((o,j)=>o.classList.toggle('sel',j==+b.dataset.j))};
+$('#kun').onclick=()=>{$('#kj').innerHTML='<b>Kunci:</b> Atom B memiliki 3 orbital sp² yang menyebar sejauh mungkin pada satu bidang (tolakan minimal), sehingga ketiga atom F berada di sudut segitiga sama sisi dengan sudut 120°. Tidak ada pasangan elektron bebas pada B yang menekan bentuk menjadi piramida.'};
+$('#fin').onclick=()=>{if(ans.includes(-1)){$('#res').style.display='block';$('#res').innerHTML='<b class="bad">Masih ada soal yang belum dijawab: nomor '+ans.map((a,i)=>a<0?i+1:0).filter(Boolean).join(', ')+'.</b>';return}
+let ok=0,w=[];Q.forEach((q,i)=>{const t=ans[i]==q[2];ok+=t;const e=$('#e'+i);mark(e,t,t?'✓ Benar. '+q[3]:'✗ Salah. Jawaban benar: '+'ABCD'[q[2]]+'. '+q[3]);if(!t)w.push(i+1)});
+const n=Math.round(ok/Q.length*100);$('#res').style.display='block';$('#res').innerHTML=`<p class="ctr">${$('#nm').value} · ${$('#kl').value} · absen ${$('#ab').value}</p><div class="sc">${n}</div><p class="ctr">${ok} dari ${Q.length} soal benar. ${w.length?'Bagian yang perlu diulang: soal nomor '+w.join(', ')+'.':'Sempurna! 🎉'}</p><p class="ctr">${n>=75?'Mantap, pertahankan!':'Jangan menyerah, pelajari lagi materinya lalu coba lagi.'} 💪</p>`;$('#res').scrollIntoView({behavior:'smooth'})};
+$('#rs').onclick=()=>go(0);$('#rq').onclick=()=>{ans.fill(-1);rq();$('#res').style.display='none';go(9)};
+rq();go(0);
+</script></body></html>
